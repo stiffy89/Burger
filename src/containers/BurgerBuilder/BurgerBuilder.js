@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Auxiliary from '../../hoc/Auxiliary.js';
+import Burger from '../../components/Burger/Burger.js';
 
 class BurgerBuilder extends Component {
 
@@ -8,9 +9,9 @@ class BurgerBuilder extends Component {
 
             <Auxiliary>
                 {/*first we want to create the GUI for the burger*/}
-                <div>
-                    Burger
-                </div>
+                <Burger>
+                    
+                </Burger>
 
                 {/*next, we want to create something for the build controls*/}
                 <div>
