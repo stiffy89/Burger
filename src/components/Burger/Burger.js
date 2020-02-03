@@ -19,15 +19,12 @@ const burger = (props) => {
     //now lets check if the length of this "flattened array" is 0 and if so, then 
     //lets display some info to the user
 
-    if (selectedIngredients.length == 0)
+    if (selectedIngredients.length === 0)
     {
         selectedIngredients = (<div>
             Please add some ingredients to the burger!
         </div>)
     }
-
-    console.log(selectedIngredients);
-
 
     return (
         <div className = "Burger">
