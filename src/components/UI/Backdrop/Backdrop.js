@@ -1,7 +1,9 @@
 import React from 'react';
 import OrderSummary from '../../Burger/OrderSummary/OrderSummary.js';
+import BurgerBuilder from '../../../containers/BurgerBuilder/BurgerBuilder.js';
 
 import './Backdrop.css';
+import { tsPropertySignature } from '@babel/types';
 
 const backdrop = (props) => {
 
@@ -16,7 +18,12 @@ const backdrop = (props) => {
                             opacity: props.show ? '1' : '0'
                         }}>
                         
-                            <OrderSummary ingredients = {props.ingredients}/>
+                            <OrderSummary 
+                                ingredients = {props.ingredients}
+                                purchaseCancelled = {props.purchaseCancelled}
+                                purchaseContinued = {props.purchaseContinued}
+                                price = {props.price}
+                            />
                     </div>
             </div>
         )

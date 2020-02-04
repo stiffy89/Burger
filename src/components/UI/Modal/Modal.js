@@ -18,7 +18,14 @@ const modal = (props) => {
                 </div>
             </Backdrop>
         </Auxiliary>*/
-            <Backdrop show = {props.show} backDropClicked={props.modalClosed} ingredients = {props.ingredients}>
+            <Backdrop 
+                show = {props.show} 
+                backDropClicked={props.modalClosed} 
+                ingredients = {props.ingredients}
+                purchaseCancelled = {props.purchaseCancelled}
+                purchaseContinued = {props.purchaseContinued}
+                price = {props.price}
+                >
                 
             </Backdrop>
 

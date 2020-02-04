@@ -14,6 +14,10 @@ const INGREDIENT_PRICES = {
 
 class BurgerBuilder extends Component {
 
+    constructor (props) {
+        super(props);
+    }
+
     state = {
         ingredients: {
             salad: 0,
@@ -91,6 +95,10 @@ class BurgerBuilder extends Component {
         this.setState ({purchasing: false});
     }
 
+    purchaseContinueHandler = () => {
+        alert ("Continue");
+    }
+
     render () {
         const disabledIngredients = {
             ...this.state.ingredients
@@ -110,7 +118,14 @@ class BurgerBuilder extends Component {
         return (
 
             <Auxiliary>
-                <Modal show={this.state.purchasing} modalClosed = {this.purchaseCancelHandler} ingredients = {this.state.ingredients}>
+                <Modal 
+                    show={this.state.purchasing} 
+                    modalClosed = {this.purchaseCancelHandler} 
+                    ingredients = {this.state.ingredients}
+                    purchaseContinued = {this.purchaseContinueHandler}
+                    purchaseCancelled = {this.purchaseCancelHandler}
+                    price = {this.state.totalPrice}
+                    >
                 </Modal>
                 {/*first we want to create the GUI for the burger*/}
                 <Burger ingredients = {this.state.ingredients}>
