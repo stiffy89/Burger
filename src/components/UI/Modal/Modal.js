@@ -25,6 +25,7 @@ const modal = (props) => {
                 purchaseCancelled = {props.purchaseCancelled}
                 purchaseContinued = {props.purchaseContinued}
                 price = {props.price}
+                showSideDraw = {props.showSideDraw}
                 >
                 
             </Backdrop>

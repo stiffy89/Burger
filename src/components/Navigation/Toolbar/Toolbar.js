@@ -1,6 +1,6 @@
 import React from 'react';
 import './Toolbar.css';
-import "../../Logo/Logo.css";
+//import "../../Logo/Logo.css";
 import Logo from '../../../components/Logo/Logo.js';
 import NavigationItems from '../NavigationItems/NavigationItems.js';
 
@@ -12,7 +12,7 @@ const toolbar = (props) => {
                 <Logo />
             </div>
             
-            <nav>
+            <nav className = "DesktopOnly">
                 <NavigationItems/>
             </nav>
         </header>

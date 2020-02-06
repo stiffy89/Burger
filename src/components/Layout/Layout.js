@@ -1,19 +1,24 @@
-import React from 'react';
+import React , {Component} from 'react';
 import Auxiliary from '../../hoc/Auxiliary.js';
 import Toolbar from '../Navigation/Toolbar/Toolbar.js';
 import SideDrawer from '../Navigation/SideDrawer/SideDrawer.js';
+import BurgerBuilder from '../../containers/BurgerBuilder/BurgerBuilder.js';
+
 import './Layout.css';
 
-const layout = (props) => {
-    return (
-        <Auxiliary>
-            <Toolbar/>
-            <SideDrawer/>
-            <main className = "Content">
-                {props.children}
-            </main>
-        </Auxiliary>
-    )  
+class Layout extends Component {
+
+    render () {
+        return (
+            <Auxiliary>
+                <Toolbar/>
+                <SideDrawer open = {this.props.open} closed = {this.props.sideDrawClose}/>
+                <main className = "Content">
+                    {this.props.children}
+                </main>
+            </Auxiliary>
+        )  
+    }
 };
 
-export default layout;
+export default Layout;

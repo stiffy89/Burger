@@ -4,6 +4,8 @@ import BuildControls from'../../components/Burger/BuildControls/BuildControls.js
 import Burger from '../../components/Burger/Burger.js';
 import Modal from '../../components/UI/Modal/Modal.js';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary.js';
+import axios from '../../Axios-orders.js';
+import Spinner from '../../components/UI/Spinner/Spinner.js';
 
 const INGREDIENT_PRICES = {
     salad: 0.5,
@@ -30,7 +32,11 @@ class BurgerBuilder extends Component {
 
         purchasable: false,
 
-        purchasing: false
+        purchasing: false,
+
+        loading: false,
+
+        sideDraw: false
     }
 
     updatePurchaseState (ingredients) {
@@ -95,8 +101,48 @@ class BurgerBuilder extends Component {
         this.setState ({purchasing: false});
     }
 
+    {PLEASECONTINUEHERE}}}}}
+    
+    setSideDrawStatus = (currentStatus) => {
+
+        console.log(currentStatus);
+
+        var currentHeldStatus = false;
+
+        if (this.state.sideDraw !== currentStatus) {
+
+            currentHeldStatus = currentStatus;
+
+            this.setState({sideDraw : currentStatus});
+        }
+
+        return currentHeldStatus;
+    }
+
+    modalCloseHandler = () => {
+
+        this.setState ({purchasing: false});
+    }
+
     purchaseContinueHandler = () => {
-        alert ("Continue");
+
+        this.setState({loading: true});
+
+        const currentOrder = {
+            ingredients: this.state.ingredients,
+            price: this.state.totalPrice,
+            customer: {
+                name: 'Steve',
+                mob: '0424380456'
+            },
+            deliveryMethod: 'Express'
+        }
+
+        //sending a post request to the backend
+        axios.post('/orders.json', currentOrder)
+        .then(response => this.setState({loading: false, purchasing: false}))
+        .catch(error => this.setState({loading:false, purchasing: false}));
+
     }
 
     render () {
@@ -115,17 +161,25 @@ class BurgerBuilder extends Component {
             }
         }
 
+        let spinner = null;
+
+        if (this.state.loading) {
+            spinner = <Spinner/>
+        }
+
         return (
 
             <Auxiliary>
                 <Modal 
                     show={this.state.purchasing} 
-                    modalClosed = {this.purchaseCancelHandler} 
+                    modalClosed = {this.modalCloseHandler} 
                     ingredients = {this.state.ingredients}
                     purchaseContinued = {this.purchaseContinueHandler}
                     purchaseCancelled = {this.purchaseCancelHandler}
                     price = {this.state.totalPrice}
+                    showSideDraw = {this.setSideDrawStatus(this.props.showSideDraw)}
                     >
+                        {spinner}
                 </Modal>
                 {/*first we want to create the GUI for the burger*/}
                 <Burger ingredients = {this.state.ingredients}>

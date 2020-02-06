@@ -5,16 +5,21 @@ import './sideDrawer.css';
 
 const sideDrawer = (props) => {
 
+    let attachedClasses = ["SideDrawer", "Close"];
+
+    if (props.open) {
+        attachedClasses = ["SideDrawer", "Open"];
+    }
+
     return (
-        <div className = "SideDrawer">
+        <div className = {attachedClasses[0] + " " + attachedClasses[1]}>
                 <div className = "Logo">
                     <Logo />
                 </div>
-            
                 <nav>
                     <NavigationItems />
                 </nav>
-         
+        
         </div>
     )
 };
