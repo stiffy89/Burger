@@ -8,31 +8,25 @@ import orderSummary from '../../Burger/OrderSummary/OrderSummary.js';
 
 const backdrop = (props) => {
 
-    let showOrderSummary = null;
-    
-    if (props.show){
-        showOrderSummary = 
-        <div 
-            className="Modal"
-            style = {{
-                transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
-                opacity: props.show ? '1' : '0'
-            }}>
-            
-                <OrderSummary 
-                ingredients = {props.ingredients}
-                purchaseCancelled = {props.purchaseCancelled}
-                purchaseContinued = {props.purchaseContinued}
-                price = {props.price}
-                />
-        </div>
-    }
 
     if (props.show)
     {
         return (
             <div className = "Backdrop" onClick = {props.backDropClicked}>
-                    {showOrderSummary}
+                <div 
+                className="Modal"
+                style = {{
+                    transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
+                    opacity: props.show ? '1' : '0'
+                }}>
+                
+                        <OrderSummary 
+                        ingredients = {props.ingredients}
+                        purchaseCancelled = {props.purchaseCancelled}
+                        purchaseContinued = {props.purchaseContinued}
+                        price = {props.price}
+                        />
+                </div>
             </div>
         )
     }
@@ -40,8 +34,7 @@ const backdrop = (props) => {
     else if (props.showSideDraw) 
     {
         return (
-            <div className = "Backdrop" onClick = {props.backDropClicked}>
-                    {showOrderSummary}
+            <div className = "Backdrop" onClick = {props.closeSideDraw} style = {{opacity: '1'}}>
             </div>
         )
     }

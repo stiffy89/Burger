@@ -21,6 +21,7 @@ const modal = (props) => {
             <Backdrop 
                 show = {props.show} 
                 backDropClicked={props.modalClosed} 
+                closeSideDraw ={props.closeSideDraw}
                 ingredients = {props.ingredients}
                 purchaseCancelled = {props.purchaseCancelled}
                 purchaseContinued = {props.purchaseContinued}

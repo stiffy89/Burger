@@ -7,6 +7,10 @@ const sideDrawer = (props) => {
 
     let attachedClasses = ["SideDrawer", "Close"];
 
+    if (props.closed) {
+        attachedClasses = ["SideDrawer", "Close"];
+    }
+
     if (props.open) {
         attachedClasses = ["SideDrawer", "Open"];
     }

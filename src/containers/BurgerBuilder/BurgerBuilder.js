@@ -36,7 +36,7 @@ class BurgerBuilder extends Component {
 
         loading: false,
 
-        sideDraw: false
+        sideDraw: true
     }
 
     updatePurchaseState (ingredients) {
@@ -100,14 +100,10 @@ class BurgerBuilder extends Component {
     purchaseCancelHandler = () => {
         this.setState ({purchasing: false});
     }
-
-    {PLEASECONTINUEHERE}}}}}
     
     setSideDrawStatus = (currentStatus) => {
 
-        console.log(currentStatus);
-
-        var currentHeldStatus = false;
+        var currentHeldStatus = this.state.sideDraw;
 
         if (this.state.sideDraw !== currentStatus) {
 
@@ -121,7 +117,11 @@ class BurgerBuilder extends Component {
 
     modalCloseHandler = () => {
 
-        this.setState ({purchasing: false});
+        //lets check the states
+        if (this.state.purchasing)
+        {
+            this.setState({purchasing: false});
+        }
     }
 
     purchaseContinueHandler = () => {
@@ -172,7 +172,8 @@ class BurgerBuilder extends Component {
             <Auxiliary>
                 <Modal 
                     show={this.state.purchasing} 
-                    modalClosed = {this.modalCloseHandler} 
+                    modalClosed = {this.modalCloseHandler}
+                    closeSideDraw = {this.props.closeSideDraw} 
                     ingredients = {this.state.ingredients}
                     purchaseContinued = {this.purchaseContinueHandler}
                     purchaseCancelled = {this.purchaseCancelHandler}

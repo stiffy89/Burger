@@ -17,7 +17,7 @@ class App extends Component{
     return (
       <div className="App">
         <Layout open = {this.state.showSideDrawer} sideDrawClose = {this.sideDrawerClosedHandler}>
-            <BurgerBuilder showSideDraw = {this.state.showSideDrawer}>
+            <BurgerBuilder showSideDraw = {this.state.showSideDrawer} closeSideDraw = {this.sideDrawerClosedHandler}>
   
             </BurgerBuilder>
         </Layout>
