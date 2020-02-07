@@ -8,10 +8,11 @@ import './Layout.css';
 
 class Layout extends Component {
 
+
     render () {
         return (
             <Auxiliary>
-                <Toolbar/>
+                <Toolbar menuClicked = {this.props.menuClicked}/>
                 <SideDrawer open = {this.props.open} closed = {this.props.sideDrawClose}/>
                 <main className = "Content">
                     {this.props.children}

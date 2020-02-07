@@ -13,10 +13,14 @@ class App extends Component{
     this.setState({showSideDrawer: false});
   }
 
+  sideDrawerOpenHandler = () => {
+    this.setState({showSideDrawer: true});
+  }
+
   render () {
     return (
       <div className="App">
-        <Layout open = {this.state.showSideDrawer} sideDrawClose = {this.sideDrawerClosedHandler}>
+        <Layout open = {this.state.showSideDrawer} sideDrawClose = {this.sideDrawerClosedHandler} menuClicked = {this.sideDrawerOpenHandler} >
             <BurgerBuilder showSideDraw = {this.state.showSideDrawer} closeSideDraw = {this.sideDrawerClosedHandler}>
   
             </BurgerBuilder>

@@ -3,11 +3,14 @@ import './Toolbar.css';
 //import "../../Logo/Logo.css";
 import Logo from '../../../components/Logo/Logo.js';
 import NavigationItems from '../NavigationItems/NavigationItems.js';
+import HamburgerIcon from '../../UI/HamburgerIcon/HamburgerIcon.js';
 
 const toolbar = (props) => {
     return (
         <header className = "Toolbar">
-            <div>MENU</div>
+            <div onClick = {props.menuClicked}>
+                <HamburgerIcon/>
+            </div>
             <div className = "Logo">
                 <Logo />
             </div>

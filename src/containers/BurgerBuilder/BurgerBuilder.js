@@ -178,7 +178,7 @@ class BurgerBuilder extends Component {
                     purchaseContinued = {this.purchaseContinueHandler}
                     purchaseCancelled = {this.purchaseCancelHandler}
                     price = {this.state.totalPrice}
-                    showSideDraw = {this.setSideDrawStatus(this.props.showSideDraw)}
+                    showSideDraw = {this.props.showSideDraw}
                     >
                         {spinner}
                 </Modal>
