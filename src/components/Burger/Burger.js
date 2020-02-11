@@ -1,6 +1,7 @@
 import React from 'react';
 import './Burger.css';
 import Ingredient from './Ingredients/Ingredients.js';
+
 import { array } from 'prop-types';
 
 const burger = (props) => {
